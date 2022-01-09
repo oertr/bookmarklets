@@ -1,0 +1,26 @@
+.flex-layout li {
+  display: block;
+}
+
+.flex-layout {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.flex-layout .flex-layout__item {
+  position: absolute;
+}
+
+.flex-layout .flex-layout__item:focus {
+  outline: none;
+}
+
+.flex-layout .flex-layout__image {
+  object-fit: contain;
+  width: 100%;
+  height: auto;
+  display: block;
+}

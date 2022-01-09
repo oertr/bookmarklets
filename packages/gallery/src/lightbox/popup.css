@@ -1,0 +1,11 @@
+.popup--open {
+  visibility: visible;
+  position: fixed;
+  z-index: 2147483647;
+}
+.popup--close {
+  visibility: hidden;
+}
+.hide-scroll-bar {
+  overflow: hidden !important;
+}

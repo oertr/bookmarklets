@@ -1,0 +1,11 @@
+@import "./flexLayout.css";
+@import "./lightbox/lightbox.css";
+
+/* hide header transition */
+.lightbox__header {
+  transition: opacity 350ms;
+}
+
+.lightbox__header.hide-header {
+  opacity: 0;
+}

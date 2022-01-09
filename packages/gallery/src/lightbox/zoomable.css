@@ -1,0 +1,9 @@
+.zoomable.zooming {
+  transition: transform 0.4s ease-out;
+}
+
+.zoomable {
+  will-change: transform;
+  transform: translate(var(--x, 0), var(--y, 0)) scale(var(--scale, 1)) !important;
+  transform-origin: 0 0;
+}

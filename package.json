@@ -1,0 +1,24 @@
+{
+  "name": "bookmarklets",
+  "private": true,
+  "author": "oertr",
+  "license": "ISC",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "lint:ts": "tsc",
+    "lint:eslint": "eslint .",
+    "fix:eslint": "eslint . --fix",
+    "format": "prettier -w ."
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.9.0",
+    "@typescript-eslint/parser": "^5.9.0",
+    "esbuild": "^0.14.10",
+    "eslint": "^8.6.0",
+    "eslint-config-prettier": "^8.3.0",
+    "prettier": "~2.5.1",
+    "typescript": "^4.5.4"
+  }
+}
