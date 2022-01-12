@@ -45,7 +45,7 @@ interface commentResponce {
 
 type commentEntry = Map<string, { comment: string; star: number }>;
 
-const HATENA_STAR = "https://s.hatena.com/entry.json";
+const HATENA_STAR = "https://s.hatena.com/entries.json";
 const HATENA_ENTRY = "https://b.hatena.ne.jp/entry/jsonlite";
 
 function commentUrl(entryId: string, user: User) {
@@ -90,9 +90,9 @@ export async function fetchBookmark(url: string): Promise<HatenaEntry | null> {
 export async function fetchStars(urls: string[]): Promise<HatenaStar> {
   const param = urls.map((url) => `uri=${encodeURIComponent(url)}`);
   const url = `${HATENA_STAR}/?${param.join("&")}`;
-  const res = (await jsonp(url)) as HatenaStar;
+  const res = await fetch(url);
 
-  return res;
+  return await res.json() as HatenaStar
 }
 
 export async function bookmarkComments(
