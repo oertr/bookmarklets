@@ -3,7 +3,8 @@
   "main": "dist/index.js",
   "private": true,
   "scripts": {
-    "build": "esbuild --minify --bundle src/index.ts --outfile=dist/index.js",
-    "cleaa": "rm -rf dist/"
+    "build": "esbuild --bundle src/index.ts --outfile=dist/index.js",
+    "clean": "rm -rf dist/",
+    "print": "echo 'javascript:'$(terser dist/index.js -m)"
   }
 }
