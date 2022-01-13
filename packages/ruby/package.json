@@ -5,6 +5,6 @@
   "scripts": {
     "build": "esbuild --bundle src/index.js --outfile=dist/index.js",
     "clean": "rm -rf dist/",
-    "print": "echo 'javascript:'$(terser dist/index.js -m)"
+    "print": "printf \"javascript:%s\" \"$(terser dist/index.js -m)\""
   }
 }

@@ -92,7 +92,7 @@ export async function fetchStars(urls: string[]): Promise<HatenaStar> {
   const url = `${HATENA_STAR}/?${param.join("&")}`;
   const res = await fetch(url);
 
-  return await res.json() as HatenaStar
+  return (await res.json()) as HatenaStar;
 }
 
 export async function bookmarkComments(
