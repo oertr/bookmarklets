@@ -75,21 +75,21 @@ function computeOrder<T>(
     }
   }
 
-  //Lookup shortest path.
+  // Lookup shortest path.
   const start = 0;
   const end = Math.max(...Object.keys(path).map((x) => Number(x)));
   const shortestPath = [end];
   for (let i = end; i !== start; i = path[i]) shortestPath.push(path[i]);
   shortestPath.reverse();
 
-  //build dot languarge for graphviz
+  // build dot languarge for graphviz
   for (let i = 0; i < shortestPath.length - 1; ++i) {
     const reg = new RegExp(`(${shortestPath[i]}->${shortestPath[i + 1]}.+)]`);
     dot = dot.replace(reg, '$1 color="red"]');
   }
   console.log("digraph g {\n" + dot + "}");
 
-  //set result
+  // set result
   const result: (T & Size)[][] = [];
   for (let y = 0; y < shortestPath.length - 1; ++y) {
     const start = shortestPath[y];

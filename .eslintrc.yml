@@ -23,6 +23,9 @@ rules:
   semi:
     - error
     - always
+  spaced-comment:
+    - error
+    - always
 overrides:
   - files:
       - "*.ts"
