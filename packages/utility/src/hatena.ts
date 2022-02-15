@@ -24,17 +24,16 @@ interface HatenaStar {
 }
 interface Entry {
   uri: string;
-  stars: Star[];
+  stars: Stars;
   colored_stars?: ColoredStars[];
 }
 interface Star {
   name: string;
   quote: string;
-  count?: number;
 }
 interface ColoredStars {
   color: string;
-  stars: Star[];
+  stars: Stars;
 }
 
 interface commentResponce {
@@ -42,6 +41,7 @@ interface commentResponce {
   star: number;
   url: string;
 }
+type Stars = Array<Star | number>;
 
 type commentEntry = Map<string, { comment: string; star: number }>;
 
@@ -54,12 +54,12 @@ function commentUrl(entryId: string, user: User) {
   return `https://b.hatena.ne.jp/${user.user}/${timeString}#bookmark-${entryId}`;
 }
 
-function starCounter(stars: Star[]) {
+function starCounter(stars: Stars): number {
   let count = 0;
 
   for (const star of stars) {
-    if (typeof star.count !== "undefined") {
-      count += star.count;
+    if (typeof star == "number") {
+      return star;
     } else {
       count += 1;
     }
