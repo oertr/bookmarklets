@@ -47,11 +47,11 @@ export function preconnect(url: string) {
 }
 
 export function getCanonicalURL(): string | null {
-  const canonical: HTMLLinkElement | null = document.querySelector(
+  const canonicals = document.querySelectorAll<HTMLLinkElement>(
     "link[rel='canonical']"
   );
 
-  return canonical ? canonical.href : null;
+  return canonicals.length == 1 ? canonicals[0].href : null;
 }
 
 export function buildTemplate(id: string): DocumentFragment | null {
